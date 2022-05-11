@@ -1,11 +1,7 @@
-package UI.AnimatorPage;
+package UI;
 
 import Business.ModelManager.ActivityManager;
-import DB.DAO.ActivityDAO;
-import UI.Page;
-import UI.PageActivityList;
-import UI.PageEntry;
-import UI.Print;
+import DB.ActivityDAO;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

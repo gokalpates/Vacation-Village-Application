@@ -1,10 +1,7 @@
-package UI.AnimatorPage;
+package UI;
 
 import Business.Model.EmergencyInformation;
-import DB.DAO.EmergencyInformationDAO;
-import UI.Page;
-import UI.PageEntry;
-import UI.Print;
+import DB.EmergencyInformationDAO;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

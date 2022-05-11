@@ -1,9 +1,7 @@
 package UI;
 
 import Business.ModelManager.ActivityManager;
-import DB.DAO.ActivityDAO;
-import UI.AnimatorPage.PageDeleteActivity;
-import UI.CustomerPage.PageCustomerAppointment;
+import DB.ActivityDAO;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

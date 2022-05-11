@@ -1,4 +1,4 @@
-package DB.DAO;
+package DB;
 
 import Business.Model.Activity.IndividualActivity;
 import Business.Model.Activity.MassActivity;

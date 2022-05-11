@@ -1,4 +1,4 @@
-package DB.DAO;
+package DB;
 
 import Business.Model.User.Customer;
 import Business.Model.EmergencyInformation;

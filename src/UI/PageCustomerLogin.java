@@ -1,12 +1,9 @@
-package UI.CustomerPage;
+package UI;
 
 import Business.ModelManager.CustomerManager;
-import DB.DAO.CustomerDAO;
-import UI.CustomerPage.PageCustomerAppointment;
-import UI.Page;
-import UI.PageEntry;
-import UI.Print;
+import DB.CustomerDAO;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,7 +17,9 @@ public class PageCustomerLogin extends Page {
 
 	private CustomerDAO customerDAO = new CustomerDAO();
 	private CustomerManager customerManager = new CustomerManager(customerDAO);
-	
+
+	private JLabel errorMessage = new JLabel("");
+
 	//Links
 	public PageEntry entryPage = null;
 	public PageCustomerAppointment customerAppointmentPage = null;
@@ -32,14 +31,21 @@ public class PageCustomerLogin extends Page {
 		passwordTextField.setBounds(250,215,300,50);
 		loginButton.setBounds(350,320,100,50);
 		returnToEntryPageButton.setBounds(350,400,100,50);
-		
+		errorMessage.setBounds(350,260,200,50);
+
+		errorMessage.setForeground(Color.RED);
+
 		loginButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Login button is clicked.");
 				 if(customerManager.authenticateCustomer(phoneNumberTextField.getText(),passwordTextField.getText())){
-					 SessionInformation.customerID = customerDAO.getIDFromPhoneNumber(phoneNumberTextField.getText());
+					 cSessionInformation.customerID = customerDAO.getIDFromPhoneNumber(phoneNumberTextField.getText());
 					 frame.clear();
 					 frame.display(customerAppointmentPage);
+				 }
+				 else
+				 {
+					 errorMessage.setText("Could not login");
 				 }
 		    }  
 		});
@@ -49,6 +55,7 @@ public class PageCustomerLogin extends Page {
 				 Print.info("Return to entry page button is clicked.");
 				 frame.clear();
 				 frame.display(entryPage);
+				 errorMessage.setText("");
 		    }  
 		});
 		
@@ -56,5 +63,6 @@ public class PageCustomerLogin extends Page {
 		components.add(passwordTextField);
 		components.add(loginButton);
 		components.add(returnToEntryPageButton);
+		components.add(errorMessage);
 	}
 }

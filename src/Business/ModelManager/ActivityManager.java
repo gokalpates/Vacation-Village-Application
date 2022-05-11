@@ -2,7 +2,7 @@ package Business.ModelManager;
 
 import Business.Model.Activity.IndividualActivity;
 import Business.Model.Activity.MassActivity;
-import DB.DAO.ActivityDAO;
+import DB.ActivityDAO;
 import DB.QueryResult;
 
 import java.util.ArrayList;

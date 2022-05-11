@@ -1,13 +1,5 @@
 package UI;
 
-import UI.AnimatorPage.*;
-import UI.CustomerPage.PageCustomerAppointment;
-import UI.CustomerPage.PageCustomerLogin;
-import UI.ManagerPage.PageAddAnimator;
-import UI.ManagerPage.PageAddCustomer;
-import UI.ManagerPage.PageAddEquipPerson;
-import UI.ManagerPage.PageManager;
-
 public class Application {
 	Frame mainFrame = null;
 	

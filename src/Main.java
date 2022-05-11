@@ -1,17 +1,13 @@
-import Business.Model.User.Animator;
-import Business.Model.User.Customer;
 import Business.ModelManager.ActivityManager;
 import Business.ModelManager.AnimatorManager;
 import Business.ModelManager.CustomerManager;
-import DB.DAO.ActivityDAO;
-import DB.DAO.AnimatorDAO;
-import DB.DAO.CustomerDAO;
+import DB.ActivityDAO;
+import DB.AnimatorDAO;
+import DB.CustomerDAO;
 import DB.DbContext;
 import UI.Application;
 
-import java.util.Arrays;
-
-public class main {
+public class Main {
     public static void main(String args[]) {
         DbContext db = new DbContext();
         CustomerDAO customerDAO = new CustomerDAO();
@@ -23,9 +19,5 @@ public class main {
 
         Application application = new Application();
         application.startup();
-
-        String[] types = activityManager.getMassActivityTypes();
-
-        System.out.println(Arrays.toString(types));
     }
 }

@@ -1,7 +1,7 @@
 package Business.ModelManager;
 
 import Business.Model.User.Customer;
-import DB.DAO.CustomerDAO;
+import DB.CustomerDAO;
 
 import java.util.Objects;
 

@@ -1,13 +1,9 @@
-package UI.CustomerPage;
+package UI;
 
 import Business.Model.Appointment;
 import Business.ModelManager.ActivityManager;
-import DB.DAO.ActivityDAO;
-import DB.DAO.AppointmentDAO;
-import UI.Page;
-import UI.PageActivityList;
-import UI.PageEntry;
-import UI.Print;
+import DB.ActivityDAO;
+import DB.AppointmentDAO;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -59,7 +55,7 @@ public class PageCustomerAppointment extends Page {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Individual activity submit button is clicked.");
 				 String activityInfo[] = activityManager.getIndActivityInfo(iDateTextField.getText(), iHourTextField.getText());
-				 appointmentDAO.addAppointment(new Appointment(SessionInformation.customerID,
+				 appointmentDAO.addAppointment(new Appointment(cSessionInformation.customerID,
 						 Integer.parseInt(activityInfo[0]),Integer.parseInt(activityInfo[1]), iDateTextField.getText(), iHourTextField.getText()));
 		    }  
 		});
@@ -78,7 +74,7 @@ public class PageCustomerAppointment extends Page {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Mass activity submit button is clicked.");
 				 String activtiyInfo[] = activityManager.getMassActivityInfo(mDateTextField.getText(), mHourTextField.getText());
-				 appointmentDAO.addAppointment(new Appointment(SessionInformation.customerID,
+				 appointmentDAO.addAppointment(new Appointment(cSessionInformation.customerID,
 						 Integer.parseInt(activtiyInfo[0]),Integer.parseInt(activtiyInfo[1]),mDateTextField.getText(),mHourTextField.getText()));
 		    }  
 		});

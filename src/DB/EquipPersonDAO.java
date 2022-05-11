@@ -1,4 +1,4 @@
-package DB.DAO;
+package DB;
 
 import Business.Model.User.EquipPerson;
 import DB.DbContext;

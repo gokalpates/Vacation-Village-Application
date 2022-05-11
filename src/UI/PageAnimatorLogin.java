@@ -1,11 +1,9 @@
-package UI.AnimatorPage;
+package UI;
 
 import Business.ModelManager.AnimatorManager;
-import DB.DAO.AnimatorDAO;
-import UI.Page;
-import UI.PageEntry;
-import UI.Print;
+import DB.AnimatorDAO;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +14,8 @@ public class PageAnimatorLogin extends Page {
 	private JTextField passwordTextField = new JPasswordField("Password");
 	private JButton loginButton = new JButton("Login");
 	private JButton returnToEntryPageButton = new JButton("Return");
+
+	private JLabel errorMessage = new JLabel("");
 
 	private AnimatorDAO animatorDAO = new AnimatorDAO();
 	private AnimatorManager animatorManager = new AnimatorManager(animatorDAO);
@@ -31,14 +31,22 @@ public class PageAnimatorLogin extends Page {
 		passwordTextField.setBounds(250,215,300,50);
 		loginButton.setBounds(350,320,100,50);
 		returnToEntryPageButton.setBounds(350,400,100,50);
-		
+		errorMessage.setBounds(350,260,200,50);
+
+		errorMessage.setForeground(Color.RED);
+
 		loginButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Login button is clicked.");
 				 if(animatorManager.authenticateAnimator(phoneNumberTextField.getText(), passwordTextField.getText())) {
-					 SessionInformation.animatorID = animatorDAO.getIDFromPhoneNumber(phoneNumberTextField.getText());
+					 aSessionInformation.animatorID = animatorDAO.getIDFromPhoneNumber(phoneNumberTextField.getText());
 					 frame.clear();
 					 frame.display(animatorPage);
+					 errorMessage.setText("");
+				 }
+				 else
+				 {
+					 errorMessage.setText("Could not login");
 				 }
 			 }
 		});
@@ -48,6 +56,7 @@ public class PageAnimatorLogin extends Page {
 				 Print.info("Return to entry page button is clicked.");
 				 frame.clear();
 				 frame.display(entryPage);
+				 errorMessage.setText("");
 		    }  
 		});
 		
@@ -55,5 +64,6 @@ public class PageAnimatorLogin extends Page {
 		components.add(passwordTextField);
 		components.add(loginButton);
 		components.add(returnToEntryPageButton);
+		components.add(errorMessage);
 	}
 }

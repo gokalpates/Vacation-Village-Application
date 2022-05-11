@@ -1,9 +1,5 @@
 package UI;
 
-import UI.AnimatorPage.PageAnimatorLogin;
-import UI.CustomerPage.PageCustomerLogin;
-import UI.ManagerPage.PageManager;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

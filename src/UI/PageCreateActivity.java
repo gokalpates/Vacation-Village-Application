@@ -1,12 +1,9 @@
-package UI.AnimatorPage;
+package UI;
 
 import Business.Model.Activity.IndividualActivity;
 import Business.Model.Activity.MassActivity;
 import Business.ModelManager.ActivityManager;
-import DB.DAO.ActivityDAO;
-import UI.Page;
-import UI.PageEntry;
-import UI.Print;
+import DB.ActivityDAO;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -59,7 +56,7 @@ public class PageCreateActivity extends Page {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Individual submit button is clicked.");
 				 activityManager.addIndividualActivity(new IndividualActivity(iNameTextField.getText(),iInternetLinkTextField.getText(),
-						 activityDate.getText(),activityHour.getText(), SessionInformation.animatorID,iAgeRequirement.getText()));
+						 activityDate.getText(),activityHour.getText(), aSessionInformation.animatorID,iAgeRequirement.getText()));
 		    }
 		});
 		
@@ -67,7 +64,7 @@ public class PageCreateActivity extends Page {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Mass submit button is clicked.");
 				 activityManager.addMassActivity(new MassActivity(mNameTextField.getText(), mInternetLinkTextField.getText(),
-						 activityDate.getText(), activityHour.getText(), SessionInformation.animatorID, mActivitiyType.getText(), mCapacityInput.getText()));
+						 activityDate.getText(), activityHour.getText(), aSessionInformation.animatorID, mActivitiyType.getText(), mCapacityInput.getText()));
 		    }  
 		});
 		
